@@ -1,0 +1,77 @@
+
+  
+  <!--{{hero}}<br/><br/>
+  {{arianaGrande}}<br/><br/>
+  {{demiLovato}}
+  -->
+
+  <!--<h2>{{new_hero.name | uppercase}} -></h2>
+  <div><span>id: </span>{{new_hero.id}}</div>
+  <div><label>name: </label>
+    <input [(ngModel)]="arianaGrande" placeholder="name">
+  </div>-->
+
+
+
+  <!-- Mostrando uma lista de herois usando o ngFor do Angular -->
+
+  <h2> My Heroes </h2>
+  <ul class="heroes">
+
+    <!-- O *ngFor é a diretiva de repetição do Angular.
+        Ele repete o elemento host para cada elemento em uma lista.
+        No exemplo abaixo:
+        li é o elemento host.
+        heroes é a lista de herois vinda da classe HeroesComponent.
+        hero armazena o objeto atual de cada iteração pela lista.
+        o (*) é parte crítica da sintaxe.
+     -->
+<!--
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+    -->
+
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+    </li>
+
+
+  </ul>
+
+<!-- Deletado pois os detalhes do heroi serão mostrados ao clicar
+      na lista de herois ou pelo dashboard.
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+-->
+  <h2> All the Loona Members and their birthnames: </h2>
+  <ul class="heroes">
+
+    <li *ngFor="let member of loona_members" (click)="onSelectMember(member)"
+      [class.selected]="member === selectedLoonaMember">
+
+      <span class="badge">{{member.stagename}}</span> <!--{{member.birthname}}-->
+    </li>
+
+    <app-loona-detail [member]="selectedLoonaMember"></app-loona-detail>
+
+  </ul>
+<!--
+Esse conteúdo foi recortado e colado para um outro component/template
+para ser reutilizado diversas vezes.
+
+E seu conteúdo foi alterado de selectedHero para hero.
+
+
+  <div *ngIf="selectedHero">
+    <h2>Você selecionou o {{selectedHero.name}}</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="selectedHero.name" placeholder="name">
+      </label>
+    </div>
+  </div>
+-->

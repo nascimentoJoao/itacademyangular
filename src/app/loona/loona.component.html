@@ -1,0 +1,12 @@
+<h2> All the Loona Members and their birthnames: </h2>
+  <ul class="heroes">
+
+    <li *ngFor="let member of loona_members" (click)="onSelectMember(member)"
+      [class.selected]="member === selectedLoonaMember">
+      <a>
+      <span class="badge">{{member.stagename}}</span> View info</a><!--{{member.birthname}}-->
+    </li>
+
+    <app-loona-detail [member]="selectedLoonaMember"></app-loona-detail>
+
+  </ul>
